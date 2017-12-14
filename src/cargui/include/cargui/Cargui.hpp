@@ -24,6 +24,9 @@ private:
     QPushButton* car_back;
     QPushButton* car_left;
     QPushButton* car_right;
+
+    
+
 public Q_SLOTS:
     void forward_clicked();
     void back_clicked();
