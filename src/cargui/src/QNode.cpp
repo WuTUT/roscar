@@ -1,7 +1,7 @@
 #include "../include/cargui/QNode.hpp"
 
 QNode::QNode(){
-
+	this->directioninfo="";
 }
 
 QNode::~QNode() {
@@ -30,20 +30,28 @@ bool QNode::init(const std::string &master_url, const std::string &host_url) {
 	return true;
 }
 
+void QNode::setDirectioninfo(string direction){
+	this->directioninfo=direction;
+}
+
 void QNode::run() {
 	ros::Rate loop_rate(1);
-	int count = 0;
+	std_msgs::String msg;
+	
 	while ( ros::ok() ) {
-
-		std_msgs::String msg;
-		std::stringstream ss;
-		ss << "hello world " << count;
-		msg.data = ss.str();
+		
+		
+		if(this->directioninfo!=""){
+		msg.data = directioninfo;
 		control_publisher.publish(msg);
+		cout<<directioninfo<<"!"<<endl;
+		this->directioninfo="";
 		
 		ros::spinOnce();
 		loop_rate.sleep();
-		++count;
+		}
+		
+		
 	}
 	std::cout << "Ros shutdown, proceeding to close the gui." << std::endl;
 	

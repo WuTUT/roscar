@@ -18,8 +18,8 @@ Cargui::Cargui(QWidget *parent)
     masterlabel=new QLabel("master url");
     hosturl=new QLineEdit();
     masterurl=new QLineEdit();
-    hosturl->setText("192.168.31.60");
-    masterurl->setText("192.168.31.52");
+    hosturl->setText("127.0.0.1");
+    masterurl->setText("http://127.0.0.1:11311");
     car_connect=new QPushButton();
     car_connect->setText("connect");
     urlinfo_Layout=new QGridLayout();
@@ -53,15 +53,20 @@ Cargui::Cargui(QWidget *parent)
 
 void Cargui::forward_clicked(){
     cout<<'f'<<endl;
+    
+    control_q.setDirectioninfo(string("f"));
 }
 void Cargui::back_clicked(){
     cout<<'b'<<endl;
+    control_q.setDirectioninfo(string("b"));
 }
 void Cargui::right_clicked(){
     cout<<'r'<<endl;
+    control_q.setDirectioninfo(string("r"));
 }
 void Cargui::left_clicked(){
     cout<<'l'<<endl;
+    control_q.setDirectioninfo(string("l"));
 }
 
 void Cargui::connect_clicked(){
