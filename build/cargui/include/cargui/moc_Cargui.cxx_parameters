@@ -1,0 +1,16 @@
+-I/opt/ros/indigo/include
+-I/usr/include
+-I/usr/include/qt4
+-I/usr/include/qt4/QtGui
+-I/usr/include/qt4/QtCore
+-I/home/wu/roscar/build/cargui
+-DROS_BUILD_SHARED_LIBS=1
+-DROS_PACKAGE_NAME="cargui"
+-DROSCONSOLE_BACKEND_LOG4CXX
+-D$<$<NOT:$<CONFIG:Debug>>:QT_NO_DEBUG>
+-DQT_GUI_LIB
+-DQT_CORE_LIB
+-DQT_NO_KEYWORDS
+-o
+/home/wu/roscar/build/cargui/include/cargui/moc_Cargui.cxx
+/home/wu/roscar/src/cargui/include/cargui/Cargui.hpp

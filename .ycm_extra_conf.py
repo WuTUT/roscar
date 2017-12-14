@@ -21,7 +21,7 @@ flags = [
 '-isystem',
 '/home/wu/roscar/devel/include',
 '-isystem',
-'/home/wu/roscar/src/CMakeLists.txt/include'
+'/home/wu/roscar/src/cargui/include'
 ]
 
 compilation_database_folder = ''
