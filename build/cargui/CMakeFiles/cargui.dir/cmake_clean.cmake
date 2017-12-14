@@ -1,8 +1,11 @@
 file(REMOVE_RECURSE
   "include/cargui/moc_Cargui.cxx"
+  "include/cargui/moc_QNode.cxx"
   "CMakeFiles/cargui.dir/src/Cargui.cpp.o"
+  "CMakeFiles/cargui.dir/src/QNode.cpp.o"
   "CMakeFiles/cargui.dir/src/main.cpp.o"
   "CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o"
+  "CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o"
   "/home/wu/roscar/devel/lib/cargui/cargui.pdb"
   "/home/wu/roscar/devel/lib/cargui/cargui"
 )

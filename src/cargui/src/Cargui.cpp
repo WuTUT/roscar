@@ -3,6 +3,8 @@
 Cargui::Cargui(QWidget *parent)
     : QWidget(parent)
 {
+    
+    
     car_forward=new QPushButton();
     car_forward->setText("Forward");
     car_back=new QPushButton();
@@ -12,22 +14,39 @@ Cargui::Cargui(QWidget *parent)
     car_right=new QPushButton();
     car_right->setText("Right");
 
+    hostlabel=new QLabel("host url");
+    masterlabel=new QLabel("master url");
+    hosturl=new QLineEdit();
+    masterurl=new QLineEdit();
+    hosturl->setText("192.168.31.60");
+    masterurl->setText("192.168.31.52");
+    car_connect=new QPushButton();
+    car_connect->setText("connect");
+    urlinfo_Layout=new QGridLayout();
+    urlinfo_Layout->addWidget(hostlabel,0,0,1,1);
+    urlinfo_Layout->addWidget(masterlabel,1,0,1,1);
+    urlinfo_Layout->addWidget(hosturl,0,1,1,1);
+    urlinfo_Layout->addWidget(masterurl,1,1,1,1);
+    urlinfo_Layout->addWidget(car_connect,2,1,1,1);
+
     QObject::connect(car_forward,SIGNAL(clicked()),this,SLOT(forward_clicked()));
     QObject::connect(car_back,SIGNAL(clicked()),this,SLOT(back_clicked()));
     QObject::connect(car_left,SIGNAL(clicked()),this,SLOT(left_clicked()));
     QObject::connect(car_right,SIGNAL(clicked()),this,SLOT(right_clicked()));
+    QObject::connect(car_connect,SIGNAL(clicked()),this,SLOT(connect_clicked()));
     carcontrol_Layout=new QGridLayout();
     carcontrol_Layout->addWidget(car_forward,0,1,1,1);
     carcontrol_Layout->addWidget(car_left,1,0,1,1);
     carcontrol_Layout->addWidget(car_back,1,1,1,1);
     carcontrol_Layout->addWidget(car_right,1,2,1,1);
     mainLayout=new QGridLayout(this);
-
+    
     imageWidget=new QWidget();
     mainLayout->setMargin(0);
     mainLayout->addWidget(imageWidget,0,0,5,5);
     mainLayout->addLayout(carcontrol_Layout,4,4,2,2);
-     this->setLayout(mainLayout);
+    mainLayout->addLayout(urlinfo_Layout,1,4,1,2);
+    this->setLayout(mainLayout);
     setMinimumSize(1500,1000);
     setMaximumSize(1500,1000);
 }
@@ -43,6 +62,15 @@ void Cargui::right_clicked(){
 }
 void Cargui::left_clicked(){
     cout<<'l'<<endl;
+}
+
+void Cargui::connect_clicked(){
+    if(!control_q.init(masterurl->text().toStdString(),hosturl->text().toStdString())){
+        cout<<"connect error"<<endl;
+    }
+    else{
+        cout<<"connect success"<<endl;
+    }
 }
 
 Cargui::~Cargui()

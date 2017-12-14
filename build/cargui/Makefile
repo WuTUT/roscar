@@ -344,6 +344,33 @@ include/cargui/moc_Cargui.cxx.s:
 	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/cargui.dir/build.make cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.s
 .PHONY : include/cargui/moc_Cargui.cxx.s
 
+include/cargui/moc_QNode.o: include/cargui/moc_QNode.cxx.o
+
+.PHONY : include/cargui/moc_QNode.o
+
+# target to build an object file
+include/cargui/moc_QNode.cxx.o:
+	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/cargui.dir/build.make cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o
+.PHONY : include/cargui/moc_QNode.cxx.o
+
+include/cargui/moc_QNode.i: include/cargui/moc_QNode.cxx.i
+
+.PHONY : include/cargui/moc_QNode.i
+
+# target to preprocess a source file
+include/cargui/moc_QNode.cxx.i:
+	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/cargui.dir/build.make cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.i
+.PHONY : include/cargui/moc_QNode.cxx.i
+
+include/cargui/moc_QNode.s: include/cargui/moc_QNode.cxx.s
+
+.PHONY : include/cargui/moc_QNode.s
+
+# target to generate assembly for a file
+include/cargui/moc_QNode.cxx.s:
+	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/cargui.dir/build.make cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.s
+.PHONY : include/cargui/moc_QNode.cxx.s
+
 src/Cargui.o: src/Cargui.cpp.o
 
 .PHONY : src/Cargui.o
@@ -370,6 +397,33 @@ src/Cargui.s: src/Cargui.cpp.s
 src/Cargui.cpp.s:
 	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/cargui.dir/build.make cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.s
 .PHONY : src/Cargui.cpp.s
+
+src/QNode.o: src/QNode.cpp.o
+
+.PHONY : src/QNode.o
+
+# target to build an object file
+src/QNode.cpp.o:
+	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/cargui.dir/build.make cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o
+.PHONY : src/QNode.cpp.o
+
+src/QNode.i: src/QNode.cpp.i
+
+.PHONY : src/QNode.i
+
+# target to preprocess a source file
+src/QNode.cpp.i:
+	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/cargui.dir/build.make cargui/CMakeFiles/cargui.dir/src/QNode.cpp.i
+.PHONY : src/QNode.cpp.i
+
+src/QNode.s: src/QNode.cpp.s
+
+.PHONY : src/QNode.s
+
+# target to generate assembly for a file
+src/QNode.cpp.s:
+	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/cargui.dir/build.make cargui/CMakeFiles/cargui.dir/src/QNode.cpp.s
+.PHONY : src/QNode.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -424,9 +478,15 @@ help:
 	@echo "... include/cargui/moc_Cargui.o"
 	@echo "... include/cargui/moc_Cargui.i"
 	@echo "... include/cargui/moc_Cargui.s"
+	@echo "... include/cargui/moc_QNode.o"
+	@echo "... include/cargui/moc_QNode.i"
+	@echo "... include/cargui/moc_QNode.s"
 	@echo "... src/Cargui.o"
 	@echo "... src/Cargui.i"
 	@echo "... src/Cargui.s"
+	@echo "... src/QNode.o"
+	@echo "... src/QNode.i"
+	@echo "... src/QNode.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

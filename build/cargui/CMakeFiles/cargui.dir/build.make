@@ -62,9 +62,14 @@ cargui/include/cargui/moc_Cargui.cxx: cargui/include/cargui/moc_Cargui.cxx_param
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating include/cargui/moc_Cargui.cxx"
 	cd /home/wu/roscar/build/cargui/include/cargui && /usr/lib/x86_64-linux-gnu/qt4/bin/moc @/home/wu/roscar/build/cargui/include/cargui/moc_Cargui.cxx_parameters
 
+cargui/include/cargui/moc_QNode.cxx: /home/wu/roscar/src/cargui/include/cargui/QNode.hpp
+cargui/include/cargui/moc_QNode.cxx: cargui/include/cargui/moc_QNode.cxx_parameters
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating include/cargui/moc_QNode.cxx"
+	cd /home/wu/roscar/build/cargui/include/cargui && /usr/lib/x86_64-linux-gnu/qt4/bin/moc @/home/wu/roscar/build/cargui/include/cargui/moc_QNode.cxx_parameters
+
 cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o: cargui/CMakeFiles/cargui.dir/flags.make
 cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o: /home/wu/roscar/src/cargui/src/Cargui.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o"
 	cd /home/wu/roscar/build/cargui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cargui.dir/src/Cargui.cpp.o -c /home/wu/roscar/src/cargui/src/Cargui.cpp
 
 cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.i: cmake_force
@@ -86,9 +91,33 @@ cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o.provides: cargui/CMakeFiles/cargui
 cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o.provides.build: cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o
 
 
+cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o: cargui/CMakeFiles/cargui.dir/flags.make
+cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o: /home/wu/roscar/src/cargui/src/QNode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o"
+	cd /home/wu/roscar/build/cargui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cargui.dir/src/QNode.cpp.o -c /home/wu/roscar/src/cargui/src/QNode.cpp
+
+cargui/CMakeFiles/cargui.dir/src/QNode.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cargui.dir/src/QNode.cpp.i"
+	cd /home/wu/roscar/build/cargui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wu/roscar/src/cargui/src/QNode.cpp > CMakeFiles/cargui.dir/src/QNode.cpp.i
+
+cargui/CMakeFiles/cargui.dir/src/QNode.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cargui.dir/src/QNode.cpp.s"
+	cd /home/wu/roscar/build/cargui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wu/roscar/src/cargui/src/QNode.cpp -o CMakeFiles/cargui.dir/src/QNode.cpp.s
+
+cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o.requires:
+
+.PHONY : cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o.requires
+
+cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o.provides: cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o.requires
+	$(MAKE) -f cargui/CMakeFiles/cargui.dir/build.make cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o.provides.build
+.PHONY : cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o.provides
+
+cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o.provides.build: cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o
+
+
 cargui/CMakeFiles/cargui.dir/src/main.cpp.o: cargui/CMakeFiles/cargui.dir/flags.make
 cargui/CMakeFiles/cargui.dir/src/main.cpp.o: /home/wu/roscar/src/cargui/src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object cargui/CMakeFiles/cargui.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object cargui/CMakeFiles/cargui.dir/src/main.cpp.o"
 	cd /home/wu/roscar/build/cargui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cargui.dir/src/main.cpp.o -c /home/wu/roscar/src/cargui/src/main.cpp
 
 cargui/CMakeFiles/cargui.dir/src/main.cpp.i: cmake_force
@@ -112,7 +141,7 @@ cargui/CMakeFiles/cargui.dir/src/main.cpp.o.provides.build: cargui/CMakeFiles/ca
 
 cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o: cargui/CMakeFiles/cargui.dir/flags.make
 cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o: cargui/include/cargui/moc_Cargui.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o"
 	cd /home/wu/roscar/build/cargui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o -c /home/wu/roscar/build/cargui/include/cargui/moc_Cargui.cxx
 
 cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.i: cmake_force
@@ -134,18 +163,46 @@ cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o.provides: cargui/CM
 cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o.provides.build: cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o
 
 
+cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o: cargui/CMakeFiles/cargui.dir/flags.make
+cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o: cargui/include/cargui/moc_QNode.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o"
+	cd /home/wu/roscar/build/cargui && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o -c /home/wu/roscar/build/cargui/include/cargui/moc_QNode.cxx
+
+cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.i"
+	cd /home/wu/roscar/build/cargui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wu/roscar/build/cargui/include/cargui/moc_QNode.cxx > CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.i
+
+cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.s"
+	cd /home/wu/roscar/build/cargui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wu/roscar/build/cargui/include/cargui/moc_QNode.cxx -o CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.s
+
+cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o.requires:
+
+.PHONY : cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o.requires
+
+cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o.provides: cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o.requires
+	$(MAKE) -f cargui/CMakeFiles/cargui.dir/build.make cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o.provides.build
+.PHONY : cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o.provides
+
+cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o.provides.build: cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o
+
+
 # Object files for target cargui
 cargui_OBJECTS = \
 "CMakeFiles/cargui.dir/src/Cargui.cpp.o" \
+"CMakeFiles/cargui.dir/src/QNode.cpp.o" \
 "CMakeFiles/cargui.dir/src/main.cpp.o" \
-"CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o"
+"CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o" \
+"CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o"
 
 # External object files for target cargui
 cargui_EXTERNAL_OBJECTS =
 
 /home/wu/roscar/devel/lib/cargui/cargui: cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o
+/home/wu/roscar/devel/lib/cargui/cargui: cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o
 /home/wu/roscar/devel/lib/cargui/cargui: cargui/CMakeFiles/cargui.dir/src/main.cpp.o
 /home/wu/roscar/devel/lib/cargui/cargui: cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o
+/home/wu/roscar/devel/lib/cargui/cargui: cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o
 /home/wu/roscar/devel/lib/cargui/cargui: cargui/CMakeFiles/cargui.dir/build.make
 /home/wu/roscar/devel/lib/cargui/cargui: /usr/lib/x86_64-linux-gnu/libQtGui.so
 /home/wu/roscar/devel/lib/cargui/cargui: /usr/lib/x86_64-linux-gnu/libQtCore.so
@@ -167,7 +224,7 @@ cargui_EXTERNAL_OBJECTS =
 /home/wu/roscar/devel/lib/cargui/cargui: /usr/lib/x86_64-linux-gnu/libpthread.so
 /home/wu/roscar/devel/lib/cargui/cargui: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
 /home/wu/roscar/devel/lib/cargui/cargui: cargui/CMakeFiles/cargui.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable /home/wu/roscar/devel/lib/cargui/cargui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable /home/wu/roscar/devel/lib/cargui/cargui"
 	cd /home/wu/roscar/build/cargui && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cargui.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -176,8 +233,10 @@ cargui/CMakeFiles/cargui.dir/build: /home/wu/roscar/devel/lib/cargui/cargui
 .PHONY : cargui/CMakeFiles/cargui.dir/build
 
 cargui/CMakeFiles/cargui.dir/requires: cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o.requires
+cargui/CMakeFiles/cargui.dir/requires: cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o.requires
 cargui/CMakeFiles/cargui.dir/requires: cargui/CMakeFiles/cargui.dir/src/main.cpp.o.requires
 cargui/CMakeFiles/cargui.dir/requires: cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o.requires
+cargui/CMakeFiles/cargui.dir/requires: cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o.requires
 
 .PHONY : cargui/CMakeFiles/cargui.dir/requires
 
@@ -186,6 +245,7 @@ cargui/CMakeFiles/cargui.dir/clean:
 .PHONY : cargui/CMakeFiles/cargui.dir/clean
 
 cargui/CMakeFiles/cargui.dir/depend: cargui/include/cargui/moc_Cargui.cxx
+cargui/CMakeFiles/cargui.dir/depend: cargui/include/cargui/moc_QNode.cxx
 	cd /home/wu/roscar/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wu/roscar/src /home/wu/roscar/src/cargui /home/wu/roscar/build /home/wu/roscar/build/cargui /home/wu/roscar/build/cargui/CMakeFiles/cargui.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : cargui/CMakeFiles/cargui.dir/depend
 
