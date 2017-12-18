@@ -22,7 +22,7 @@ Cargui::Cargui(QWidget *parent)
     masterlabel=new QLabel("master url");
     hosturl=new QLineEdit();
     masterurl=new QLineEdit();
-    hosturl->setText("192.168.31.210");
+    hosturl->setText("127.0.0.1");
     masterurl->setText("http://ubuntu:11311");
     car_connect=new QPushButton();
     car_connect->setText("connect");
