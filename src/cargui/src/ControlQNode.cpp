@@ -1,20 +1,22 @@
-#include "../include/cargui/QNode.hpp"
+#include "../include/cargui/ControlQNode.hpp"
 
-QNode::QNode(){
+ControlQNode::ControlQNode(){
 	this->directioninfo="";
+	cout<<"one thread is created"<<endl;
 }
 
-QNode::~QNode() {
+ControlQNode::~ControlQNode() {
     if(ros::isStarted()) {
       ros::shutdown(); // explicitly needed since we use ros::start();
       ros::waitForShutdown();
     }
 	wait();
+	cout<<"one thread is deleted"<<endl;
 }
 
 
 
-bool QNode::init(const std::string &master_url, const std::string &host_url) {
+bool ControlQNode::init(const std::string &master_url, const std::string &host_url) {
 	std::map<std::string,std::string> remappings;
 	remappings["__master"] = master_url;
 	remappings["__hostname"] = host_url;
@@ -24,17 +26,17 @@ bool QNode::init(const std::string &master_url, const std::string &host_url) {
 	}
 	ros::start(); // explicitly needed since our nodehandle is going out of scope.
 	ros::NodeHandle n;
-	// Add your ros communications here.
-	control_publisher = n.advertise<std_msgs::String>("chatter", 1000);
+	
+	control_publisher = n.advertise<std_msgs::String>("direction", 1000);
 	start();
 	return true;
 }
 
-void QNode::setDirectioninfo(string direction){
+void ControlQNode::setDirectioninfo(string direction){
 	this->directioninfo=direction;
 }
 
-void QNode::run() {
+void ControlQNode::run() {
 	ros::Rate loop_rate(1);
 	std_msgs::String msg;
 	

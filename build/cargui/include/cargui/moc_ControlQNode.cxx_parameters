@@ -20,5 +20,5 @@
 -DQT_CORE_LIB
 -DQT_NO_KEYWORDS
 -o
-/home/wu/roscar/build/cargui/include/cargui/moc_Cargui.cxx
-/home/wu/roscar/src/cargui/include/cargui/Cargui.hpp
+/home/wu/roscar/build/cargui/include/cargui/moc_ControlQNode.cxx
+/home/wu/roscar/src/cargui/include/cargui/ControlQNode.hpp

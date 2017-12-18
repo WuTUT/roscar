@@ -1,5 +1,5 @@
-#ifndef QNODE_HPP_
-#define QNODE_HPP_
+#ifndef CONTROLQNODE_HPP_
+#define CONTROLQNODE_HPP_
 
 #include <ros/ros.h>
 #include <ros/network.h>
@@ -9,12 +9,12 @@
 #include <QThread>
 #include <QStringListModel>
 using namespace std;
-class QNode : public QThread
+class ControlQNode : public QThread
 {
     Q_OBJECT
 public:
-	QNode();
-	virtual ~QNode();
+	ControlQNode();
+	virtual ~ControlQNode();
 	
 	bool init(const std::string &master_url, const std::string &host_url);
 	void run();
@@ -25,4 +25,4 @@ private:
 	ros::Publisher control_publisher;
 };
 
-#endif // QNODE_HPP
+#endif // CONTROLQNODE_HPP

@@ -5,10 +5,18 @@
 #include <QPushButton>
 #include <QLayout>
 #include <QLabel>
+#include <QImage>
+#include <QPixmap>  
 #include <QLineEdit>
 #include <iostream>
-#include "QNode.hpp"
+#include <sensor_msgs/CompressedImage.h>
+#include <sensor_msgs/image_encodings.h>
+#include <cv_bridge/cv_bridge.h>
+#include <opencv2/opencv.hpp>
+#include <image_transport/image_transport.h>
 
+#include "ControlQNode.hpp"
+using namespace cv;
 using namespace std;
 using namespace Qt;
 class Cargui : public QWidget
@@ -21,7 +29,8 @@ public:
     
 private:
 
-    QWidget* imageWidget;
+    QLabel* imageLabel;
+    QGridLayout* imageLayout;
 
     QGridLayout* mainLayout;
 
@@ -39,9 +48,15 @@ private:
     QGridLayout* urlinfo_Layout;
     QPushButton* car_connect;
 
-    QNode control_q;
+    ControlQNode control_q;
     
 
+    ros::Subscriber imgshow_subscriber;
+    cv::Mat conversion_mat_;
+    
+
+    bool init(const std::string &master_url, const std::string &host_url);
+    void imgcallback(const sensor_msgs::CompressedImageConstPtr& msg);
 public Q_SLOTS:
     void forward_clicked();
     void back_clicked();

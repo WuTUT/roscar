@@ -4,9 +4,19 @@
 cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o
  /home/wu/roscar/build/cargui/include/cargui/moc_Cargui.cxx
  /home/wu/roscar/src/cargui/include/cargui/Cargui.hpp
- /home/wu/roscar/src/cargui/include/cargui/QNode.hpp
+ /home/wu/roscar/src/cargui/include/cargui/ControlQNode.hpp
  /opt/ros/indigo/include/XmlRpcDecl.h
  /opt/ros/indigo/include/XmlRpcValue.h
+ /opt/ros/indigo/include/cv_bridge/cv_bridge.h
+ /opt/ros/indigo/include/image_transport/camera_publisher.h
+ /opt/ros/indigo/include/image_transport/camera_subscriber.h
+ /opt/ros/indigo/include/image_transport/exception.h
+ /opt/ros/indigo/include/image_transport/image_transport.h
+ /opt/ros/indigo/include/image_transport/loader_fwds.h
+ /opt/ros/indigo/include/image_transport/publisher.h
+ /opt/ros/indigo/include/image_transport/single_subscriber_publisher.h
+ /opt/ros/indigo/include/image_transport/subscriber.h
+ /opt/ros/indigo/include/image_transport/transport_hints.h
  /opt/ros/indigo/include/ros/advertise_options.h
  /opt/ros/indigo/include/ros/advertise_service_options.h
  /opt/ros/indigo/include/ros/assert.h
@@ -62,6 +72,12 @@ cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o
  /opt/ros/indigo/include/ros/wall_timer.h
  /opt/ros/indigo/include/ros/wall_timer_options.h
  /opt/ros/indigo/include/rosconsole/macros_generated.h
+ /opt/ros/indigo/include/sensor_msgs/CameraInfo.h
+ /opt/ros/indigo/include/sensor_msgs/CompressedImage.h
+ /opt/ros/indigo/include/sensor_msgs/Image.h
+ /opt/ros/indigo/include/sensor_msgs/RegionOfInterest.h
+ /opt/ros/indigo/include/sensor_msgs/image_encodings.h
+ /opt/ros/indigo/include/std_msgs/Header.h
  /opt/ros/indigo/include/std_msgs/String.h
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
@@ -139,9 +155,11 @@ cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o
  /usr/include/qt4/QtCore/qthread.h
  /usr/include/qt4/QtCore/qvariant.h
  /usr/include/qt4/QtCore/qvector.h
+ /usr/include/qt4/QtGui/QImage
  /usr/include/qt4/QtGui/QLabel
  /usr/include/qt4/QtGui/QLayout
  /usr/include/qt4/QtGui/QLineEdit
+ /usr/include/qt4/QtGui/QPixmap
  /usr/include/qt4/QtGui/QPlatformWindow
  /usr/include/qt4/QtGui/QPushButton
  /usr/include/qt4/QtGui/QStringListModel
@@ -202,9 +220,9 @@ cargui/CMakeFiles/cargui.dir/include/cargui/moc_Cargui.cxx.o
  /usr/include/qt4/QtGui/qwindowdefs.h
  /usr/include/qt4/QtGui/qwindowdefs_win.h
  /usr/include/qt4/QtGui/qwmatrix.h
-cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o
- /home/wu/roscar/build/cargui/include/cargui/moc_QNode.cxx
- /home/wu/roscar/src/cargui/include/cargui/QNode.hpp
+cargui/CMakeFiles/cargui.dir/include/cargui/moc_ControlQNode.cxx.o
+ /home/wu/roscar/build/cargui/include/cargui/moc_ControlQNode.cxx
+ /home/wu/roscar/src/cargui/include/cargui/ControlQNode.hpp
  /opt/ros/indigo/include/XmlRpcDecl.h
  /opt/ros/indigo/include/XmlRpcValue.h
  /opt/ros/indigo/include/ros/advertise_options.h
@@ -387,10 +405,20 @@ cargui/CMakeFiles/cargui.dir/include/cargui/moc_QNode.cxx.o
  /usr/include/qt4/QtGui/qwmatrix.h
 cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o
  /home/wu/roscar/src/cargui/include/cargui/Cargui.hpp
- /home/wu/roscar/src/cargui/include/cargui/QNode.hpp
+ /home/wu/roscar/src/cargui/include/cargui/ControlQNode.hpp
  /home/wu/roscar/src/cargui/src/Cargui.cpp
  /opt/ros/indigo/include/XmlRpcDecl.h
  /opt/ros/indigo/include/XmlRpcValue.h
+ /opt/ros/indigo/include/cv_bridge/cv_bridge.h
+ /opt/ros/indigo/include/image_transport/camera_publisher.h
+ /opt/ros/indigo/include/image_transport/camera_subscriber.h
+ /opt/ros/indigo/include/image_transport/exception.h
+ /opt/ros/indigo/include/image_transport/image_transport.h
+ /opt/ros/indigo/include/image_transport/loader_fwds.h
+ /opt/ros/indigo/include/image_transport/publisher.h
+ /opt/ros/indigo/include/image_transport/single_subscriber_publisher.h
+ /opt/ros/indigo/include/image_transport/subscriber.h
+ /opt/ros/indigo/include/image_transport/transport_hints.h
  /opt/ros/indigo/include/ros/advertise_options.h
  /opt/ros/indigo/include/ros/advertise_service_options.h
  /opt/ros/indigo/include/ros/assert.h
@@ -446,6 +474,12 @@ cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o
  /opt/ros/indigo/include/ros/wall_timer.h
  /opt/ros/indigo/include/ros/wall_timer_options.h
  /opt/ros/indigo/include/rosconsole/macros_generated.h
+ /opt/ros/indigo/include/sensor_msgs/CameraInfo.h
+ /opt/ros/indigo/include/sensor_msgs/CompressedImage.h
+ /opt/ros/indigo/include/sensor_msgs/Image.h
+ /opt/ros/indigo/include/sensor_msgs/RegionOfInterest.h
+ /opt/ros/indigo/include/sensor_msgs/image_encodings.h
+ /opt/ros/indigo/include/std_msgs/Header.h
  /opt/ros/indigo/include/std_msgs/String.h
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
@@ -523,9 +557,11 @@ cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o
  /usr/include/qt4/QtCore/qthread.h
  /usr/include/qt4/QtCore/qvariant.h
  /usr/include/qt4/QtCore/qvector.h
+ /usr/include/qt4/QtGui/QImage
  /usr/include/qt4/QtGui/QLabel
  /usr/include/qt4/QtGui/QLayout
  /usr/include/qt4/QtGui/QLineEdit
+ /usr/include/qt4/QtGui/QPixmap
  /usr/include/qt4/QtGui/QPlatformWindow
  /usr/include/qt4/QtGui/QPushButton
  /usr/include/qt4/QtGui/QStringListModel
@@ -586,9 +622,9 @@ cargui/CMakeFiles/cargui.dir/src/Cargui.cpp.o
  /usr/include/qt4/QtGui/qwindowdefs.h
  /usr/include/qt4/QtGui/qwindowdefs_win.h
  /usr/include/qt4/QtGui/qwmatrix.h
-cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o
- /home/wu/roscar/src/cargui/include/cargui/QNode.hpp
- /home/wu/roscar/src/cargui/src/QNode.cpp
+cargui/CMakeFiles/cargui.dir/src/ControlQNode.cpp.o
+ /home/wu/roscar/src/cargui/include/cargui/ControlQNode.hpp
+ /home/wu/roscar/src/cargui/src/ControlQNode.cpp
  /opt/ros/indigo/include/XmlRpcDecl.h
  /opt/ros/indigo/include/XmlRpcValue.h
  /opt/ros/indigo/include/ros/advertise_options.h
@@ -771,10 +807,20 @@ cargui/CMakeFiles/cargui.dir/src/QNode.cpp.o
  /usr/include/qt4/QtGui/qwmatrix.h
 cargui/CMakeFiles/cargui.dir/src/main.cpp.o
  /home/wu/roscar/src/cargui/include/cargui/Cargui.hpp
- /home/wu/roscar/src/cargui/include/cargui/QNode.hpp
+ /home/wu/roscar/src/cargui/include/cargui/ControlQNode.hpp
  /home/wu/roscar/src/cargui/src/main.cpp
  /opt/ros/indigo/include/XmlRpcDecl.h
  /opt/ros/indigo/include/XmlRpcValue.h
+ /opt/ros/indigo/include/cv_bridge/cv_bridge.h
+ /opt/ros/indigo/include/image_transport/camera_publisher.h
+ /opt/ros/indigo/include/image_transport/camera_subscriber.h
+ /opt/ros/indigo/include/image_transport/exception.h
+ /opt/ros/indigo/include/image_transport/image_transport.h
+ /opt/ros/indigo/include/image_transport/loader_fwds.h
+ /opt/ros/indigo/include/image_transport/publisher.h
+ /opt/ros/indigo/include/image_transport/single_subscriber_publisher.h
+ /opt/ros/indigo/include/image_transport/subscriber.h
+ /opt/ros/indigo/include/image_transport/transport_hints.h
  /opt/ros/indigo/include/ros/advertise_options.h
  /opt/ros/indigo/include/ros/advertise_service_options.h
  /opt/ros/indigo/include/ros/assert.h
@@ -830,6 +876,12 @@ cargui/CMakeFiles/cargui.dir/src/main.cpp.o
  /opt/ros/indigo/include/ros/wall_timer.h
  /opt/ros/indigo/include/ros/wall_timer_options.h
  /opt/ros/indigo/include/rosconsole/macros_generated.h
+ /opt/ros/indigo/include/sensor_msgs/CameraInfo.h
+ /opt/ros/indigo/include/sensor_msgs/CompressedImage.h
+ /opt/ros/indigo/include/sensor_msgs/Image.h
+ /opt/ros/indigo/include/sensor_msgs/RegionOfInterest.h
+ /opt/ros/indigo/include/sensor_msgs/image_encodings.h
+ /opt/ros/indigo/include/std_msgs/Header.h
  /opt/ros/indigo/include/std_msgs/String.h
  /usr/include/qt4/Qt3Support/q3cstring.h
  /usr/include/qt4/Qt3Support/q3valuelist.h
@@ -912,9 +964,11 @@ cargui/CMakeFiles/cargui.dir/src/main.cpp.o
  /usr/include/qt4/QtCore/qvariant.h
  /usr/include/qt4/QtCore/qvector.h
  /usr/include/qt4/QtGui/QApplication
+ /usr/include/qt4/QtGui/QImage
  /usr/include/qt4/QtGui/QLabel
  /usr/include/qt4/QtGui/QLayout
  /usr/include/qt4/QtGui/QLineEdit
+ /usr/include/qt4/QtGui/QPixmap
  /usr/include/qt4/QtGui/QPlatformWindow
  /usr/include/qt4/QtGui/QPushButton
  /usr/include/qt4/QtGui/QStringListModel

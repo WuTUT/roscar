@@ -3,9 +3,13 @@ project(cargui)
 
 
 find_package(catkin REQUIRED COMPONENTS
-   roscpp qt_build
+   roscpp qt_build cv_bridge sensor_msgs std_msgs image_transport
 )
-include_directories(${catkin_INCLUDE_DIRS})
+set(OpenCV_DIR /usr/local/share/OpenCV)
+message(STATUS "    version: ${OpenCV_VERSION}")
+find_package(OpenCV)
+include_directories(
+  include ${catkin_INCLUDE_DIRS}${catkin_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
 
 catkin_package()
 rosbuild_prepare_qt4(QtCore QtGui)

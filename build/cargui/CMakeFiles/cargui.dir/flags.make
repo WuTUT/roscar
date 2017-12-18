@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_KEYWORDS -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"cargui\"
 
-CXX_INCLUDES = -I/opt/ros/indigo/include -isystem /usr/include/qt4 -isystem /usr/include/qt4/QtGui -isystem /usr/include/qt4/QtCore -I/home/wu/roscar/build/cargui 
+CXX_INCLUDES = -I/usr/include/opencv -I/home/wu/roscar/src/cargui/include -I/opt/ros/indigo/include -I/usr/include/opencv/opt/ros/indigo/include -isystem /usr/include/qt4 -isystem /usr/include/qt4/QtGui -isystem /usr/include/qt4/QtCore -I/home/wu/roscar/build/cargui 
 
