@@ -23,7 +23,7 @@ Cargui::Cargui(QWidget *parent)
     hosturl=new QLineEdit();
     masterurl=new QLineEdit();
     hosturl->setText("192.168.31.210");
-    masterurl->setText("http://192.168.31.210:11311");
+    masterurl->setText("http://ubuntu:11311");
     car_connect=new QPushButton();
     car_connect->setText("connect");
     urlinfo_Layout=new QGridLayout();
@@ -94,9 +94,12 @@ void Cargui::imgcallback(const sensor_msgs::CompressedImageConstPtr& msg) {
     imageLabel->setPixmap(QPixmap::fromImage(image));  
     imageLabel->resize(image.size());  
     imageLabel->show();  
-    //ros::spin();
+    
+    ros::spin();
 }
-
+void Cargui::callback(const std_msgs::String::ConstPtr& msg){
+    ROS_INFO("I heard: [%s]", msg->data.c_str());
+}
 
 bool Cargui::init(const std::string &master_url, const std::string &host_url) {
 	std::map<std::string,std::string> remappings;
@@ -108,27 +111,30 @@ bool Cargui::init(const std::string &master_url, const std::string &host_url) {
 	}
 	ros::start(); // explicitly needed since our nodehandle is going out of scope.
 	ros::NodeHandle n;
-	// Add your ros communications here.
     //image_transport::ImageTransport it(n);
-	imgshow_subscriber = n.subscribe("/raspicam_node/compressed",1,&Cargui::imgcallback,this);
+    sub=n.subscribe("chatter",1000,&Cargui::callback,this);
+	//imgshow_subscriber = it.subscribe("/raspicam_node/compressed",1,&Cargui::imgcallback,this);
 	
     return true;
 }
 
 
 void Cargui::connect_clicked(){
-    if(!control_q.init(masterurl->text().toStdString(),hosturl->text().toStdString())){
-        cout<<"connect error"<<endl;
-    }
-    else{
-        cout<<"connect success"<<endl;
-    }
+
     if(!Cargui::init(masterurl->text().toStdString(),hosturl->text().toStdString())){
         cout<<"imgshowconnect error"<<endl;
     }
     else{
         cout<<"imgshowconnect success"<<endl;
     }
+
+    if(!control_q.init(masterurl->text().toStdString(),hosturl->text().toStdString())){
+        cout<<"connect error"<<endl;
+    }
+    else{
+        cout<<"connect success"<<endl;
+    }
+    
 }
 
 Cargui::~Cargui()

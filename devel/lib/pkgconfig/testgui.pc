@@ -1,0 +1,8 @@
+prefix=/home/wu/roscar/devel
+
+Name: testgui
+Description: Description of testgui
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/wu/roscar/devel/lib 
+Requires: 

@@ -1,20 +1,20 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/wu/roscar/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_677d7/fast"
-/usr/bin/make -f CMakeFiles/cmTC_677d7.dir/build.make CMakeFiles/cmTC_677d7.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_44870/fast"
+/usr/bin/make -f CMakeFiles/cmTC_44870.dir/build.make CMakeFiles/cmTC_44870.dir/build
 make[1]: 正在进入目录 `/home/wu/roscar/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_677d7.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_677d7.dir/CheckSymbolExists.c.o   -c /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_677d7
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_677d7.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_677d7.dir/CheckSymbolExists.c.o  -o cmTC_677d7 
-CMakeFiles/cmTC_677d7.dir/CheckSymbolExists.c.o：在函数‘main’中：
+Building C object CMakeFiles/cmTC_44870.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_44870.dir/CheckSymbolExists.c.o   -c /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_44870
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_44870.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_44870.dir/CheckSymbolExists.c.o  -o cmTC_44870 
+CMakeFiles/cmTC_44870.dir/CheckSymbolExists.c.o：在函数‘main’中：
 CheckSymbolExists.c:(.text+0x16)：对‘pthread_create’未定义的引用
 collect2: error: ld returned 1 exit status
-make[1]: *** [cmTC_677d7] 错误 1
+make[1]: *** [cmTC_44870] 错误 1
 make[1]:正在离开目录 `/home/wu/roscar/build/CMakeFiles/CMakeTmp'
-make: *** [cmTC_677d7/fast] 错误 2
+make: *** [cmTC_44870/fast] 错误 2
 
 File /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -34,36 +34,36 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/wu/roscar/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_89b52/fast"
-/usr/bin/make -f CMakeFiles/cmTC_89b52.dir/build.make CMakeFiles/cmTC_89b52.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_2b9ee/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2b9ee.dir/build.make CMakeFiles/cmTC_2b9ee.dir/build
 make[1]: 正在进入目录 `/home/wu/roscar/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_89b52.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_89b52.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.9/Modules/CheckFunctionExists.c
-Linking C executable cmTC_89b52
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_89b52.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_89b52.dir/CheckFunctionExists.c.o  -o cmTC_89b52 -lpthreads 
+Building C object CMakeFiles/cmTC_2b9ee.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_2b9ee.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.9/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2b9ee
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2b9ee.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_2b9ee.dir/CheckFunctionExists.c.o  -o cmTC_2b9ee -lpthreads 
 /usr/bin/ld: 找不到 -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [cmTC_89b52] 错误 1
+make[1]: *** [cmTC_2b9ee] 错误 1
 make[1]:正在离开目录 `/home/wu/roscar/build/CMakeFiles/CMakeTmp'
-make: *** [cmTC_89b52/fast] 错误 2
+make: *** [cmTC_2b9ee/fast] 错误 2
 
 
 Determining if the Q_WS_WIN exist failed with the following output:
 Change Dir: /home/wu/roscar/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_7825c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_7825c.dir/build.make CMakeFiles/cmTC_7825c.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_3232e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3232e.dir/build.make CMakeFiles/cmTC_3232e.dir/build
 make[1]: 正在进入目录 `/home/wu/roscar/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_7825c.dir/CheckSymbolExists.cxx.o
-/usr/bin/c++   -I/usr/include/qt4   -o CMakeFiles/cmTC_7825c.dir/CheckSymbolExists.cxx.o -c /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Building CXX object CMakeFiles/cmTC_3232e.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++   -I/usr/include/qt4   -o CMakeFiles/cmTC_3232e.dir/CheckSymbolExists.cxx.o -c /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
 /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
 /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_WIN’ was not declared in this scope
    return ((int*)(&Q_WS_WIN))[argc];
                    ^
-make[1]: *** [CMakeFiles/cmTC_7825c.dir/CheckSymbolExists.cxx.o] 错误 1
+make[1]: *** [CMakeFiles/cmTC_3232e.dir/CheckSymbolExists.cxx.o] 错误 1
 make[1]:正在离开目录 `/home/wu/roscar/build/CMakeFiles/CMakeTmp'
-make: *** [cmTC_7825c/fast] 错误 2
+make: *** [cmTC_3232e/fast] 错误 2
 
 File /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
 /* */
@@ -83,18 +83,18 @@ int main(int argc, char** argv)
 Determining if the Q_WS_QWS exist failed with the following output:
 Change Dir: /home/wu/roscar/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_b1cc1/fast"
-/usr/bin/make -f CMakeFiles/cmTC_b1cc1.dir/build.make CMakeFiles/cmTC_b1cc1.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_e6288/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e6288.dir/build.make CMakeFiles/cmTC_e6288.dir/build
 make[1]: 正在进入目录 `/home/wu/roscar/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_b1cc1.dir/CheckSymbolExists.cxx.o
-/usr/bin/c++   -I/usr/include/qt4   -o CMakeFiles/cmTC_b1cc1.dir/CheckSymbolExists.cxx.o -c /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Building CXX object CMakeFiles/cmTC_e6288.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++   -I/usr/include/qt4   -o CMakeFiles/cmTC_e6288.dir/CheckSymbolExists.cxx.o -c /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
 /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
 /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_QWS’ was not declared in this scope
    return ((int*)(&Q_WS_QWS))[argc];
                    ^
-make[1]: *** [CMakeFiles/cmTC_b1cc1.dir/CheckSymbolExists.cxx.o] 错误 1
+make[1]: *** [CMakeFiles/cmTC_e6288.dir/CheckSymbolExists.cxx.o] 错误 1
 make[1]:正在离开目录 `/home/wu/roscar/build/CMakeFiles/CMakeTmp'
-make: *** [cmTC_b1cc1/fast] 错误 2
+make: *** [cmTC_e6288/fast] 错误 2
 
 File /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
 /* */
@@ -114,18 +114,18 @@ int main(int argc, char** argv)
 Determining if the Q_WS_MAC exist failed with the following output:
 Change Dir: /home/wu/roscar/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_cdbe7/fast"
-/usr/bin/make -f CMakeFiles/cmTC_cdbe7.dir/build.make CMakeFiles/cmTC_cdbe7.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_3e541/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3e541.dir/build.make CMakeFiles/cmTC_3e541.dir/build
 make[1]: 正在进入目录 `/home/wu/roscar/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_cdbe7.dir/CheckSymbolExists.cxx.o
-/usr/bin/c++   -I/usr/include/qt4   -o CMakeFiles/cmTC_cdbe7.dir/CheckSymbolExists.cxx.o -c /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Building CXX object CMakeFiles/cmTC_3e541.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++   -I/usr/include/qt4   -o CMakeFiles/cmTC_3e541.dir/CheckSymbolExists.cxx.o -c /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
 /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
 /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_MAC’ was not declared in this scope
    return ((int*)(&Q_WS_MAC))[argc];
                    ^
-make[1]: *** [CMakeFiles/cmTC_cdbe7.dir/CheckSymbolExists.cxx.o] 错误 1
+make[1]: *** [CMakeFiles/cmTC_3e541.dir/CheckSymbolExists.cxx.o] 错误 1
 make[1]:正在离开目录 `/home/wu/roscar/build/CMakeFiles/CMakeTmp'
-make: *** [cmTC_cdbe7/fast] 错误 2
+make: *** [cmTC_3e541/fast] 错误 2
 
 File /home/wu/roscar/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
 /* */

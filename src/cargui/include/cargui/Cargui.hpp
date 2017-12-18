@@ -14,7 +14,6 @@
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/opencv.hpp>
 #include <image_transport/image_transport.h>
-
 #include "ControlQNode.hpp"
 using namespace cv;
 using namespace std;
@@ -50,13 +49,16 @@ private:
 
     ControlQNode control_q;
     
-
-    ros::Subscriber imgshow_subscriber;
+    
+	
+    ros::Subscriber sub;
+    //image_transport::Subscriber imgshow_subscriber;
     cv::Mat conversion_mat_;
     
 
     bool init(const std::string &master_url, const std::string &host_url);
     void imgcallback(const sensor_msgs::CompressedImageConstPtr& msg);
+    void callback(const std_msgs::String::ConstPtr& msg);
 public Q_SLOTS:
     void forward_clicked();
     void back_clicked();
