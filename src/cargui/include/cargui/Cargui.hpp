@@ -50,9 +50,6 @@ private:
     ControlQNode control_q;
     
     
-	//ros::NodeHandle n;
-    //image_transport::ImageTransport it;
-    //ros::Subscriber sub;
     image_transport::Subscriber imgshow_subscriber;
     cv::Mat conversion_mat_;
     
