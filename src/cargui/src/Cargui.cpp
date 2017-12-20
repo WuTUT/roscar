@@ -76,7 +76,7 @@ void Cargui::left_clicked(){
 }
 
 
-void Cargui::imgcallback(const sensor_msgs::CompressedImageConstPtr& msg) {
+void Cargui::imgcallback(const sensor_msgs::ImageConstPtr& msg) {
     cout<<"111"<<endl;
 
     cv_bridge::CvImagePtr cv_ptr;  
@@ -95,10 +95,10 @@ void Cargui::imgcallback(const sensor_msgs::CompressedImageConstPtr& msg) {
     imageLabel->resize(image.size());  
     imageLabel->show();  
     
-    ros::spin();
 }
 void Cargui::callback(const std_msgs::String::ConstPtr& msg){
     ROS_INFO("I heard: [%s]", msg->data.c_str());
+    
 }
 
 bool Cargui::init(const std::string &master_url, const std::string &host_url) {
@@ -111,9 +111,12 @@ bool Cargui::init(const std::string &master_url, const std::string &host_url) {
 	}
 	ros::start(); // explicitly needed since our nodehandle is going out of scope.
 	ros::NodeHandle n;
-    //image_transport::ImageTransport it(n);
-    sub=n.subscribe("chatter",1000,&Cargui::callback,this);
-	//imgshow_subscriber = it.subscribe("/raspicam_node/compressed",1,&Cargui::imgcallback,this);
+    image_transport::ImageTransport it(n);
+    //sub=n.subscribe("chatter",1000,&Cargui::callback,this);
+   
+
+
+	imgshow_subscriber = it.subscribe("image/compressed",1,&Cargui::imgcallback,this);
 	
     return true;
 }
@@ -127,14 +130,14 @@ void Cargui::connect_clicked(){
     else{
         cout<<"imgshowconnect success"<<endl;
     }
-
+    cout<<imgshow_subscriber.getTopic()<<endl;
     if(!control_q.init(masterurl->text().toStdString(),hosturl->text().toStdString())){
         cout<<"connect error"<<endl;
     }
     else{
         cout<<"connect success"<<endl;
     }
-    
+    ros::spin();
 }
 
 Cargui::~Cargui()

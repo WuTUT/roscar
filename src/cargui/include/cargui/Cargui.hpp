@@ -50,14 +50,15 @@ private:
     ControlQNode control_q;
     
     
-	
-    ros::Subscriber sub;
-    //image_transport::Subscriber imgshow_subscriber;
+	//ros::NodeHandle n;
+    //image_transport::ImageTransport it;
+    //ros::Subscriber sub;
+    image_transport::Subscriber imgshow_subscriber;
     cv::Mat conversion_mat_;
     
 
     bool init(const std::string &master_url, const std::string &host_url);
-    void imgcallback(const sensor_msgs::CompressedImageConstPtr& msg);
+    void imgcallback(const sensor_msgs::ImageConstPtr& msg);
     void callback(const std_msgs::String::ConstPtr& msg);
 public Q_SLOTS:
     void forward_clicked();
