@@ -238,6 +238,8 @@ OpenCV_3RDPARTY_LIB_DIR_DBG:PATH=
 //Path where release 3rdpaty OpenCV dependencies are located
 OpenCV_3RDPARTY_LIB_DIR_OPT:PATH=
 
+OpenCV_CONFIG_PATH:FILEPATH=/usr/local/share/OpenCV
+
 //Path where debug OpenCV libraries are located
 OpenCV_LIB_DIR_DBG:PATH=
 
@@ -908,6 +910,12 @@ cv_bridge_DIR:PATH=/opt/ros/indigo/share/cv_bridge/cmake
 geometry_msgs_DIR:PATH=/opt/ros/indigo/share/geometry_msgs/cmake
 
 //Value Computed by CMake
+gesturecon_BINARY_DIR:STATIC=/home/wu/roscar/build/gesturecon
+
+//Value Computed by CMake
+gesturecon_SOURCE_DIR:STATIC=/home/wu/roscar/src/gesturecon
+
+//Value Computed by CMake
 gtest_BINARY_DIR:STATIC=/home/wu/roscar/build/gtest
 
 //Dependencies for the target
@@ -1099,7 +1107,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1165,6 +1173,8 @@ GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 OpenCV_3RDPARTY_LIB_DIR_DBG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_OPT
 OpenCV_3RDPARTY_LIB_DIR_OPT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_CONFIG_PATH
+OpenCV_CONFIG_PATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OpenCV_LIB_DIR_DBG
 OpenCV_LIB_DIR_DBG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OpenCV_LIB_DIR_OPT

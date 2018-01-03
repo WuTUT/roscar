@@ -1,0 +1,8 @@
+prefix=/home/wu/roscar/devel
+
+Name: gesturecon
+Description: Description of gesturecon
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/wu/roscar/devel/lib 
+Requires: 
