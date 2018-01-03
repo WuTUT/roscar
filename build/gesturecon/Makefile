@@ -80,28 +80,6 @@ install/fast: preinstall/fast
 	/usr/local/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/local/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -123,6 +101,28 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/local/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -166,21 +166,6 @@ preinstall/fast:
 depend:
 	cd /home/wu/roscar/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-# Convenience name for target.
-gesturecon/CMakeFiles/gesturecontrol_sub.dir/rule:
-	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 gesturecon/CMakeFiles/gesturecontrol_sub.dir/rule
-.PHONY : gesturecon/CMakeFiles/gesturecontrol_sub.dir/rule
-
-# Convenience name for target.
-gesturecontrol_sub: gesturecon/CMakeFiles/gesturecontrol_sub.dir/rule
-
-.PHONY : gesturecontrol_sub
-
-# fast build rule for target.
-gesturecontrol_sub/fast:
-	cd /home/wu/roscar/build && $(MAKE) -f gesturecon/CMakeFiles/gesturecontrol_sub.dir/build.make gesturecon/CMakeFiles/gesturecontrol_sub.dir/build
-.PHONY : gesturecontrol_sub/fast
 
 # Convenience name for target.
 gesturecon/CMakeFiles/_catkin_empty_exported_target.dir/rule:
@@ -332,33 +317,6 @@ std_msgs_generate_messages_py/fast:
 	cd /home/wu/roscar/build && $(MAKE) -f gesturecon/CMakeFiles/std_msgs_generate_messages_py.dir/build.make gesturecon/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
-src/gesturecontrol_sub.o: src/gesturecontrol_sub.cpp.o
-
-.PHONY : src/gesturecontrol_sub.o
-
-# target to build an object file
-src/gesturecontrol_sub.cpp.o:
-	cd /home/wu/roscar/build && $(MAKE) -f gesturecon/CMakeFiles/gesturecontrol_sub.dir/build.make gesturecon/CMakeFiles/gesturecontrol_sub.dir/src/gesturecontrol_sub.cpp.o
-.PHONY : src/gesturecontrol_sub.cpp.o
-
-src/gesturecontrol_sub.i: src/gesturecontrol_sub.cpp.i
-
-.PHONY : src/gesturecontrol_sub.i
-
-# target to preprocess a source file
-src/gesturecontrol_sub.cpp.i:
-	cd /home/wu/roscar/build && $(MAKE) -f gesturecon/CMakeFiles/gesturecontrol_sub.dir/build.make gesturecon/CMakeFiles/gesturecontrol_sub.dir/src/gesturecontrol_sub.cpp.i
-.PHONY : src/gesturecontrol_sub.cpp.i
-
-src/gesturecontrol_sub.s: src/gesturecontrol_sub.cpp.s
-
-.PHONY : src/gesturecontrol_sub.s
-
-# target to generate assembly for a file
-src/gesturecontrol_sub.cpp.s:
-	cd /home/wu/roscar/build && $(MAKE) -f gesturecon/CMakeFiles/gesturecontrol_sub.dir/build.make gesturecon/CMakeFiles/gesturecontrol_sub.dir/src/gesturecontrol_sub.cpp.s
-.PHONY : src/gesturecontrol_sub.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -367,11 +325,10 @@ help:
 	@echo "... depend"
 	@echo "... install/local"
 	@echo "... install"
-	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... gesturecontrol_sub"
+	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... _catkin_empty_exported_target"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_cpp"
@@ -383,9 +340,6 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_py"
-	@echo "... src/gesturecontrol_sub.o"
-	@echo "... src/gesturecontrol_sub.i"
-	@echo "... src/gesturecontrol_sub.s"
 .PHONY : help
 
 

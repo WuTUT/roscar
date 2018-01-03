@@ -259,19 +259,6 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
-# Target rules for targets named gesturecontrol_sub
-
-# Build rule for target.
-gesturecontrol_sub: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gesturecontrol_sub
-.PHONY : gesturecontrol_sub
-
-# fast build rule for target.
-gesturecontrol_sub/fast:
-	$(MAKE) -f gesturecon/CMakeFiles/gesturecontrol_sub.dir/build.make gesturecon/CMakeFiles/gesturecontrol_sub.dir/build
-.PHONY : gesturecontrol_sub/fast
-
-#=============================================================================
 # Target rules for targets named _catkin_empty_exported_target
 
 # Build rule for target.
@@ -538,7 +525,6 @@ help:
 	@echo "... install"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... gesturecontrol_sub"
 	@echo "... _catkin_empty_exported_target"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_cpp"

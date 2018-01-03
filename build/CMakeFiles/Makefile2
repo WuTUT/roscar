@@ -245,7 +245,7 @@ gtest/preinstall:
 gtest/CMakeFiles/gtest_main.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=13,14 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=11,12 "Built target gtest_main"
 .PHONY : gtest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -277,7 +277,7 @@ clean: gtest/CMakeFiles/gtest_main.dir/clean
 gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=11,12 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=9,10 "Built target gtest"
 .PHONY : gtest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -306,12 +306,11 @@ clean: gtest/CMakeFiles/gtest.dir/clean
 # Directory level rules for directory gesturecon
 
 # Convenience name for "all" pass in the directory.
-gesturecon/all: gesturecon/CMakeFiles/gesturecontrol_sub.dir/all
+gesturecon/all:
 
 .PHONY : gesturecon/all
 
 # Convenience name for "clean" pass in the directory.
-gesturecon/clean: gesturecon/CMakeFiles/gesturecontrol_sub.dir/clean
 gesturecon/clean: gesturecon/CMakeFiles/_catkin_empty_exported_target.dir/clean
 gesturecon/clean: gesturecon/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 gesturecon/clean: gesturecon/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
@@ -329,51 +328,6 @@ gesturecon/clean: gesturecon/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 gesturecon/preinstall:
 
 .PHONY : gesturecon/preinstall
-
-#=============================================================================
-# Target rules for target gesturecon/CMakeFiles/gesturecontrol_sub.dir
-
-# All Build rule for target.
-gesturecon/CMakeFiles/gesturecontrol_sub.dir/all: gesturecon/CMakeFiles/roscpp_generate_messages_lisp.dir/all
-gesturecon/CMakeFiles/gesturecontrol_sub.dir/all: gesturecon/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
-gesturecon/CMakeFiles/gesturecontrol_sub.dir/all: gesturecon/CMakeFiles/roscpp_generate_messages_cpp.dir/all
-gesturecon/CMakeFiles/gesturecontrol_sub.dir/all: gesturecon/CMakeFiles/roscpp_generate_messages_py.dir/all
-gesturecon/CMakeFiles/gesturecontrol_sub.dir/all: gesturecon/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-gesturecon/CMakeFiles/gesturecontrol_sub.dir/all: gesturecon/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-gesturecon/CMakeFiles/gesturecontrol_sub.dir/all: gesturecon/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
-gesturecon/CMakeFiles/gesturecontrol_sub.dir/all: gesturecon/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-gesturecon/CMakeFiles/gesturecontrol_sub.dir/all: gesturecon/CMakeFiles/std_msgs_generate_messages_py.dir/all
-	$(MAKE) -f gesturecon/CMakeFiles/gesturecontrol_sub.dir/build.make gesturecon/CMakeFiles/gesturecontrol_sub.dir/depend
-	$(MAKE) -f gesturecon/CMakeFiles/gesturecontrol_sub.dir/build.make gesturecon/CMakeFiles/gesturecontrol_sub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=9,10 "Built target gesturecontrol_sub"
-.PHONY : gesturecon/CMakeFiles/gesturecontrol_sub.dir/all
-
-# Include target in all.
-all: gesturecon/CMakeFiles/gesturecontrol_sub.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-gesturecon/CMakeFiles/gesturecontrol_sub.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wu/roscar/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 gesturecon/CMakeFiles/gesturecontrol_sub.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wu/roscar/build/CMakeFiles 0
-.PHONY : gesturecon/CMakeFiles/gesturecontrol_sub.dir/rule
-
-# Convenience name for target.
-gesturecontrol_sub: gesturecon/CMakeFiles/gesturecontrol_sub.dir/rule
-
-.PHONY : gesturecontrol_sub
-
-# clean rule for target.
-gesturecon/CMakeFiles/gesturecontrol_sub.dir/clean:
-	$(MAKE) -f gesturecon/CMakeFiles/gesturecontrol_sub.dir/build.make gesturecon/CMakeFiles/gesturecontrol_sub.dir/clean
-.PHONY : gesturecon/CMakeFiles/gesturecontrol_sub.dir/clean
-
-# clean rule for target.
-clean: gesturecon/CMakeFiles/gesturecontrol_sub.dir/clean
-
-.PHONY : clean
 
 #=============================================================================
 # Target rules for target gesturecon/CMakeFiles/_catkin_empty_exported_target.dir
@@ -730,7 +684,7 @@ testgui/CMakeFiles/testimage_pub.dir/all: gesturecon/CMakeFiles/rosgraph_msgs_ge
 testgui/CMakeFiles/testimage_pub.dir/all: gesturecon/CMakeFiles/std_msgs_generate_messages_py.dir/all
 	$(MAKE) -f testgui/CMakeFiles/testimage_pub.dir/build.make testgui/CMakeFiles/testimage_pub.dir/depend
 	$(MAKE) -f testgui/CMakeFiles/testimage_pub.dir/build.make testgui/CMakeFiles/testimage_pub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=17,18 "Built target testimage_pub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=15,16 "Built target testimage_pub"
 .PHONY : testgui/CMakeFiles/testimage_pub.dir/all
 
 # Include target in all.
@@ -775,7 +729,7 @@ testgui/CMakeFiles/testcontrol_sub.dir/all: gesturecon/CMakeFiles/rosgraph_msgs_
 testgui/CMakeFiles/testcontrol_sub.dir/all: gesturecon/CMakeFiles/std_msgs_generate_messages_py.dir/all
 	$(MAKE) -f testgui/CMakeFiles/testcontrol_sub.dir/build.make testgui/CMakeFiles/testcontrol_sub.dir/depend
 	$(MAKE) -f testgui/CMakeFiles/testcontrol_sub.dir/build.make testgui/CMakeFiles/testcontrol_sub.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=15,16 "Built target testcontrol_sub"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wu/roscar/build/CMakeFiles --progress-num=13,14 "Built target testcontrol_sub"
 .PHONY : testgui/CMakeFiles/testcontrol_sub.dir/all
 
 # Include target in all.

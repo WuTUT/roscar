@@ -21,11 +21,10 @@
 /home/wu/roscar/build/gtest/CMakeFiles/gtest.dir
 /home/wu/roscar/build/gesturecon/CMakeFiles/install/local.dir
 /home/wu/roscar/build/gesturecon/CMakeFiles/install.dir
-/home/wu/roscar/build/gesturecon/CMakeFiles/rebuild_cache.dir
-/home/wu/roscar/build/gesturecon/CMakeFiles/test.dir
 /home/wu/roscar/build/gesturecon/CMakeFiles/install/strip.dir
 /home/wu/roscar/build/gesturecon/CMakeFiles/list_install_components.dir
-/home/wu/roscar/build/gesturecon/CMakeFiles/gesturecontrol_sub.dir
+/home/wu/roscar/build/gesturecon/CMakeFiles/rebuild_cache.dir
+/home/wu/roscar/build/gesturecon/CMakeFiles/test.dir
 /home/wu/roscar/build/gesturecon/CMakeFiles/_catkin_empty_exported_target.dir
 /home/wu/roscar/build/gesturecon/CMakeFiles/roscpp_generate_messages_lisp.dir
 /home/wu/roscar/build/gesturecon/CMakeFiles/std_msgs_generate_messages_cpp.dir
