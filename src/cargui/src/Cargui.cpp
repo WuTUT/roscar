@@ -116,7 +116,7 @@ bool Cargui::init(const std::string &master_url, const std::string &host_url) {
    
 
 
-	imgshow_subscriber = it.subscribe("raspicam_node/image",1,&Cargui::imgcallback,this);
+	imgshow_subscriber = it.subscribe("raspicam_node/image/compressed",1,&Cargui::imgcallback,this);
 	
     return true;
 }
@@ -137,7 +137,7 @@ void Cargui::connect_clicked(){
     else{
         cout<<"connect success"<<endl;
     }
-    ros::spin();
+   // ros::spin();
 }
 
 Cargui::~Cargui()
