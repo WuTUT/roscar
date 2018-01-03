@@ -3,8 +3,8 @@
 
 
 #include <iostream>
-#include "opencv2/opencv.hpp"
-
+#include <opencv2/opencv.hpp>
+#include <cv_bridge/cv_bridge.h>
 using namespace cv;
 using namespace std;
 
@@ -18,21 +18,19 @@ int CrL = 5;    //轨迹条滑块对应的值
 int CrH = 5;
 int CbL = 5;
 int CbH = 5;
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	Mat frame, frameROI, skinArea;
-    VideoCapture capture;
+    VideoCapture capture(0);
     int num=0;
     
-    capture.open(0);
+
     if (!capture.isOpened())
     {
         cout<<"No camera!\n"<<endl;
         return -1;
     }
     
-
-
 
 	ros::init(argc, argv, "gesturecon");
 
@@ -50,21 +48,21 @@ int main(int argc, char *argv[])
 		capture >> frame;
         
         if (frame.empty())
-            break;
+            cout<<"no frame"<<endl;
         
         num = 0;
         Mat show_img;
         
-        GaussianBlur(frame, frame, Size(3, 3), 0);  //高斯滤波
-        rectangle(frame,Rect(200,200,600,300), Scalar(255,0,0),4,1,0);
-        frameROI = frame(Rect(200,200,600,300));
+       GaussianBlur(frame, frame, Size(3, 3), 0);  //高斯滤波
+        rectangle(frame,Rect(120,100,300,300), Scalar(255,0,0),4,1,0);
+        frameROI = frame(Rect(120,100,300,300));
         imshow("frame", frame);
         
         skinArea.create(frameROI.rows, frameROI.cols, CV_8UC1);
         skinExtract(frameROI, skinArea);
         frameROI.copyTo(show_img, skinArea);
         
-        vector<vector<Point>> contours;
+        vector<vector<Point> > contours;
         vector<Vec4i> hierarchy;
         
         //寻找轮廓
@@ -168,4 +166,44 @@ int main(int argc, char *argv[])
 	}
 
 	return 0;
+}
+
+
+void skinExtract(const Mat &frame, Mat &skinArea)
+{
+    Mat YCbCr;
+    vector<Mat> planes;
+    
+    //转换为YCrCb颜色空间
+    cvtColor(frame, YCbCr, CV_RGB2YCrCb);
+    //将多通道图像分离为多个单通道图像
+    split(YCbCr, planes);
+    
+     //运用迭代器访问矩阵元素
+     MatIterator_<uchar> it_Cb = planes[1].begin<uchar>(),
+     it_Cb_end = planes[1].end<uchar>();
+     MatIterator_<uchar> it_Cr = planes[2].begin<uchar>();
+     MatIterator_<uchar> it_skin = skinArea.begin<uchar>();
+    
+    namedWindow("show",1);
+    
+    //创建轨迹条
+    createTrackbar("CrL：","show", &CrL,20);
+    createTrackbar("CrH：","show", &CrH,20);
+    createTrackbar("CbL：","show", &CbL,20);
+    createTrackbar("CbH：","show", &CbH,20);
+     
+    //人的皮肤颜色在YCbCr色度空间的分布范围: 138<=Cr<=175; 100<=Cb<=118
+     for( ; it_Cb != it_Cb_end; ++it_Cr, ++it_Cb, ++it_skin)
+     {
+     if (CrL+133 <= *it_Cr &&  *it_Cr <= CrH+170 && CbL+95 <= *it_Cb &&  *it_Cb <= CbH+112)
+     *it_skin = 255;
+     else
+     *it_skin = 0;
+     }
+     
+     //膨胀和腐蚀，膨胀可以填补凹洞（将裂缝桥接），腐蚀可以消除细的凸起（“斑点”噪声）
+     dilate(skinArea, skinArea, Mat(5, 5, CV_8UC1), Point(-1, -1),2);
+     erode(skinArea, skinArea, Mat(5, 5, CV_8UC1), Point(-1, -1),1);
+
 }

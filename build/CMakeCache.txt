@@ -910,6 +910,12 @@ cv_bridge_DIR:PATH=/opt/ros/indigo/share/cv_bridge/cmake
 geometry_msgs_DIR:PATH=/opt/ros/indigo/share/geometry_msgs/cmake
 
 //Value Computed by CMake
+gesture_BINARY_DIR:STATIC=/home/wu/roscar/build/gesture
+
+//Value Computed by CMake
+gesture_SOURCE_DIR:STATIC=/home/wu/roscar/src/gesture
+
+//Value Computed by CMake
 gesturecon_BINARY_DIR:STATIC=/home/wu/roscar/build/gesturecon
 
 //Value Computed by CMake

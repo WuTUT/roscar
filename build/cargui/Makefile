@@ -56,6 +56,18 @@ CMAKE_BINARY_DIR = /home/wu/roscar/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -80,18 +92,6 @@ install/fast: preinstall/fast
 	/usr/local/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -102,16 +102,16 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/local/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
 
-.PHONY : test/fast
+.PHONY : rebuild_cache/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -124,16 +124,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/local/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
+# Special rule for the target test
+test/fast: test
 
-.PHONY : rebuild_cache/fast
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,81 +168,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-cargui/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
-	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 cargui/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-.PHONY : cargui/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_cpp: cargui/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_cpp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_cpp/fast:
-	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make cargui/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-.PHONY : sensor_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-cargui/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
-	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 cargui/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-.PHONY : cargui/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: cargui/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make cargui/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-cargui/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 cargui/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : cargui/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: cargui/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make cargui/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-cargui/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
-	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 cargui/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-.PHONY : cargui/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: cargui/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make cargui/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-cargui/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 cargui/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : cargui/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: cargui/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make cargui/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
 cargui/CMakeFiles/cargui.dir/rule:
 	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 cargui/CMakeFiles/cargui.dir/rule
 .PHONY : cargui/CMakeFiles/cargui.dir/rule
@@ -256,21 +181,6 @@ cargui: cargui/CMakeFiles/cargui.dir/rule
 cargui/fast:
 	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/cargui.dir/build.make cargui/CMakeFiles/cargui.dir/build
 .PHONY : cargui/fast
-
-# Convenience name for target.
-cargui/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 cargui/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : cargui/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: cargui/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd /home/wu/roscar/build && $(MAKE) -f cargui/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make cargui/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
 
 include/cargui/moc_Cargui.o: include/cargui/moc_Cargui.cxx.o
 
@@ -413,20 +323,14 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... install"
-	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... sensor_msgs_generate_messages_cpp"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... test"
-	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... edit_cache"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... cargui"
-	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... test"
+	@echo "... cargui"
 	@echo "... include/cargui/moc_Cargui.o"
 	@echo "... include/cargui/moc_Cargui.i"
 	@echo "... include/cargui/moc_Cargui.s"
