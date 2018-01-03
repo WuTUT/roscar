@@ -200,11 +200,3 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-
-add_executable(gesturecontrol_sub
-  src/gesturecontrol_sub.cpp
-)
-add_dependencies(gesturecontrol_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(gesturecontrol_sub
-  ${catkin_LIBRARIES}
-)
