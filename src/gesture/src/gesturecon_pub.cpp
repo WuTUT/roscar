@@ -8,7 +8,9 @@
 using namespace cv;
 using namespace std;
 
-void skinExtract(const Mat &frame, Mat &skinArea); //选出肤色
+void skinExtract1(const Mat &frame, Mat &skinArea); //选出肤色
+void skinExtract2(const Mat &frame, Mat &skinArea); //选出肤色
+bool isCover(Point a,Point b);
 
 //-----------------------------------【全局函数声明部分】--------------------------------------
 //  描述：全局函数声明
@@ -91,20 +93,26 @@ int main(int argc, char **argv)
         Point center(moment.m10/moment.m00, moment.m01/moment.m00);
         circle(show_img, center, 8 ,Scalar(0, 0, 255), CV_FILLED);
         
-        // 寻找指尖1
+       // 寻找指尖1
         vector<Point> couPoint = contours[index];
+        vector<Point> couPoint2 = hull[index];
         vector<Point> fingerTips;
-        Point tmp;
+        Point tmp,tmp2;
         int max(0), count(0), notice(0);
         for (int i = 0; i < couPoint.size(); i++)
         {
             tmp = couPoint[i];
             int dist = (tmp.x - center.x) * (tmp.x - center.x) + (tmp.y - center.y) * (tmp.y - center.y);
-            if (dist > max)
-            {
-                max = dist;
-                notice = i;
+            
+            for (int j=0; j < couPoint2.size(); j++) {
+                tmp2 = couPoint2[j];
+                if ( isCover(tmp,tmp2) && dist > max )
+                {
+                    max = dist;
+                    notice = i;
+                }
             }
+            
             
             // 计算最大值保持的点数，如果大于 （这个值需要设置，本来想根据max值来设置，
             // 但是不成功，不知道为何），那么就认为这个是指尖
@@ -206,4 +214,10 @@ void skinExtract(const Mat &frame, Mat &skinArea)
      dilate(skinArea, skinArea, Mat(5, 5, CV_8UC1), Point(-1, -1),2);
      erode(skinArea, skinArea, Mat(5, 5, CV_8UC1), Point(-1, -1),1);
 
+}
+bool isCover(Point a,Point b){
+    if(a.x == b.x && a.y == b.y)
+        return true;
+    else
+        return false;
 }
