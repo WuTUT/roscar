@@ -168,36 +168,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-testgui/CMakeFiles/testcontrol_sub.dir/rule:
-	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 testgui/CMakeFiles/testcontrol_sub.dir/rule
-.PHONY : testgui/CMakeFiles/testcontrol_sub.dir/rule
-
-# Convenience name for target.
-testcontrol_sub: testgui/CMakeFiles/testcontrol_sub.dir/rule
-
-.PHONY : testcontrol_sub
-
-# fast build rule for target.
-testcontrol_sub/fast:
-	cd /home/wu/roscar/build && $(MAKE) -f testgui/CMakeFiles/testcontrol_sub.dir/build.make testgui/CMakeFiles/testcontrol_sub.dir/build
-.PHONY : testcontrol_sub/fast
-
-# Convenience name for target.
-testgui/CMakeFiles/_catkin_empty_exported_target.dir/rule:
-	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 testgui/CMakeFiles/_catkin_empty_exported_target.dir/rule
-.PHONY : testgui/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-# Convenience name for target.
-_catkin_empty_exported_target: testgui/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-.PHONY : _catkin_empty_exported_target
-
-# fast build rule for target.
-_catkin_empty_exported_target/fast:
-	cd /home/wu/roscar/build && $(MAKE) -f testgui/CMakeFiles/_catkin_empty_exported_target.dir/build.make testgui/CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
-
-# Convenience name for target.
 testgui/CMakeFiles/testimage_pub.dir/rule:
 	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 testgui/CMakeFiles/testimage_pub.dir/rule
 .PHONY : testgui/CMakeFiles/testimage_pub.dir/rule
@@ -228,21 +198,6 @@ roscpp_generate_messages_lisp/fast:
 .PHONY : roscpp_generate_messages_lisp/fast
 
 # Convenience name for target.
-testgui/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 testgui/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : testgui/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: testgui/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/wu/roscar/build && $(MAKE) -f testgui/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make testgui/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
 testgui/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
 	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 testgui/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 .PHONY : testgui/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
@@ -256,6 +211,21 @@ roscpp_generate_messages_cpp: testgui/CMakeFiles/roscpp_generate_messages_cpp.di
 roscpp_generate_messages_cpp/fast:
 	cd /home/wu/roscar/build && $(MAKE) -f testgui/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make testgui/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 .PHONY : roscpp_generate_messages_cpp/fast
+
+# Convenience name for target.
+testgui/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
+	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 testgui/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : testgui/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_cpp: testgui/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : std_msgs_generate_messages_cpp
+
+# fast build rule for target.
+std_msgs_generate_messages_cpp/fast:
+	cd /home/wu/roscar/build && $(MAKE) -f testgui/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make testgui/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 testgui/CMakeFiles/roscpp_generate_messages_py.dir/rule:
@@ -347,6 +317,21 @@ std_msgs_generate_messages_py/fast:
 	cd /home/wu/roscar/build && $(MAKE) -f testgui/CMakeFiles/std_msgs_generate_messages_py.dir/build.make testgui/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
+# Convenience name for target.
+testgui/CMakeFiles/testcontrol_sub.dir/rule:
+	cd /home/wu/roscar/build && $(MAKE) -f CMakeFiles/Makefile2 testgui/CMakeFiles/testcontrol_sub.dir/rule
+.PHONY : testgui/CMakeFiles/testcontrol_sub.dir/rule
+
+# Convenience name for target.
+testcontrol_sub: testgui/CMakeFiles/testcontrol_sub.dir/rule
+
+.PHONY : testcontrol_sub
+
+# fast build rule for target.
+testcontrol_sub/fast:
+	cd /home/wu/roscar/build && $(MAKE) -f testgui/CMakeFiles/testcontrol_sub.dir/build.make testgui/CMakeFiles/testcontrol_sub.dir/build
+.PHONY : testcontrol_sub/fast
+
 src/testcontrol_sub.o: src/testcontrol_sub.cpp.o
 
 .PHONY : src/testcontrol_sub.o
@@ -413,12 +398,10 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... testcontrol_sub"
-	@echo "... _catkin_empty_exported_target"
 	@echo "... testimage_pub"
 	@echo "... roscpp_generate_messages_lisp"
-	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_cpp"
+	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... edit_cache"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... std_msgs_generate_messages_lisp"
@@ -426,6 +409,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_py"
+	@echo "... testcontrol_sub"
 	@echo "... src/testcontrol_sub.o"
 	@echo "... src/testcontrol_sub.i"
 	@echo "... src/testcontrol_sub.s"
