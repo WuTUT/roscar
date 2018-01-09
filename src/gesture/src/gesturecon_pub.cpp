@@ -8,9 +8,7 @@
 using namespace cv;
 using namespace std;
 
-void skinExtract1(const Mat &frame, Mat &skinArea); //选出肤色
-void skinExtract2(const Mat &frame, Mat &skinArea); //选出肤色
-bool isCover(Point a,Point b);
+
 
 //-----------------------------------【全局函数声明部分】--------------------------------------
 //  描述：全局函数声明
@@ -20,11 +18,20 @@ int CrL = 5;    //轨迹条滑块对应的值
 int CrH = 5;
 int CbL = 5;
 int CbH = 5;
+
+void skinExtract1(const Mat &frame, Mat &skinArea); //选出肤色
+void skinExtract2(const Mat &frame, Mat &skinArea); //选出肤色
+bool isCover(Point a,Point b);
+
 int main(int argc, char **argv)
 {
-	Mat frame, frameROI, skinArea;
+	 int num=0;
+    Mat skinArea,frameROI;
+    
+    Mat frame;
     VideoCapture capture(0);
-    int num=0;
+  
+   
     
 
     if (!capture.isOpened())
@@ -61,7 +68,7 @@ int main(int argc, char **argv)
         imshow("frame", frame);
         
         skinArea.create(frameROI.rows, frameROI.cols, CV_8UC1);
-        skinExtract(frameROI, skinArea);
+        skinExtract2(frameROI, skinArea);
         frameROI.copyTo(show_img, skinArea);
         
         vector<vector<Point> > contours;
@@ -70,28 +77,35 @@ int main(int argc, char **argv)
         //寻找轮廓
         findContours(skinArea, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE);
         
-        if(contours.size() == 0 || hierarchy.size() == 0)
+        if(contours.size() == 0 || contours.size()==1)
             continue;
+         drawContours(show_img, contours, 1, Scalar(0, 0, 255), 2, 8, hierarchy);
         
+        vector<vector<Point> >hull(contours.size());
+        for (int i = 0; i < contours.size(); i++){
+            convexHull(Mat(contours[i]), hull[i], false);
+            //drawContours(show_img, hull, i,Scalar(0, 0, 255), 2, 8, vector<Vec4i>(), 0, Point());
+        }
         // 找到最大的轮廓
         int index = 0;
         double area, maxArea(0);
-        for (int i=0; i < contours.size(); i++)
+        for (int i=0; i < hull.size(); i++)
         {
-            area = contourArea(Mat(contours[i]));
+            area = contourArea(Mat(hull[i]));
             if (area > maxArea)
             {
                 maxArea = area;
                 index = i;
             }
         }
-        
+        drawContours(show_img, contours, index,Scalar(0, 0, 255), 2, 8, vector<Vec4i>(), 0, Point());
+        drawContours(show_img, hull, index,Scalar(0, 0, 255), 2, 8, vector<Vec4i>(), 0, Point());
         
         //drawContours(frame, contours, 1, Scalar(0, 0, 255), 2, 8, hierarchy );
-        
         Moments moment = moments(skinArea, true);
         Point center(moment.m10/moment.m00, moment.m01/moment.m00);
         circle(show_img, center, 8 ,Scalar(0, 0, 255), CV_FILLED);
+        
         
        // 寻找指尖1
         vector<Point> couPoint = contours[index];
@@ -125,7 +139,7 @@ int main(int argc, char **argv)
                     max = 0;
                     bool flag = false;
                     // 低于手心的点不算
-                    if (center.y < couPoint[notice].y+10 )
+                    if (center.y < couPoint[notice].y+50 )
                         continue;
                     // 离得太近的不算
                     for (int j = 0; j < fingerTips.size(); j++)
@@ -146,14 +160,13 @@ int main(int argc, char **argv)
         }
         
         
-        if ( cvWaitKey(20) == 'q' )
+        if ( cvWaitKey(300) == 'q' )
             break;
         
         imshow("show_img", show_img);
         
         cout << "Number of Fingers is " << num << endl;
         
-    
 
 
 		std_msgs::String msg;
@@ -177,7 +190,8 @@ int main(int argc, char **argv)
 }
 
 
-void skinExtract(const Mat &frame, Mat &skinArea)
+//肤色提取，skinArea为二值化肤色图像
+void skinExtract1(const Mat &frame, Mat &skinArea)
 {
     Mat YCbCr;
     vector<Mat> planes;
@@ -187,11 +201,31 @@ void skinExtract(const Mat &frame, Mat &skinArea)
     //将多通道图像分离为多个单通道图像
     split(YCbCr, planes);
     
-     //运用迭代器访问矩阵元素
-     MatIterator_<uchar> it_Cb = planes[1].begin<uchar>(),
-     it_Cb_end = planes[1].end<uchar>();
-     MatIterator_<uchar> it_Cr = planes[2].begin<uchar>();
-     MatIterator_<uchar> it_skin = skinArea.begin<uchar>();
+    Mat target = planes[2];
+    threshold(target, target, 0, 255, CV_THRESH_OTSU);              // 二值化处理
+    //imshow("target", target);
+    
+    Mat element = getStructuringElement(MORPH_RECT, Size(5, 5));   // 开运算去除噪点
+    morphologyEx(target, target, MORPH_OPEN, element);
+    //imshow("open", target);
+    target.copyTo(skinArea);
+}
+
+void skinExtract2(const Mat &frame, Mat &skinArea)
+{
+    Mat YCbCr;
+    vector<Mat> planes;
+    
+    //转换为YCrCb颜色空间
+    cvtColor(frame, YCbCr, CV_RGB2YCrCb);
+    //将多通道图像分离为多个单通道图像
+    split(YCbCr, planes);
+    
+    //运用迭代器访问矩阵元素
+    MatIterator_<uchar> it_Cb = planes[1].begin<uchar>(),
+    it_Cb_end = planes[1].end<uchar>();
+    MatIterator_<uchar> it_Cr = planes[2].begin<uchar>();
+    MatIterator_<uchar> it_skin = skinArea.begin<uchar>();
     
     namedWindow("show",1);
     
@@ -200,20 +234,21 @@ void skinExtract(const Mat &frame, Mat &skinArea)
     createTrackbar("CrH：","show", &CrH,20);
     createTrackbar("CbL：","show", &CbL,20);
     createTrackbar("CbH：","show", &CbH,20);
-     
-    //人的皮肤颜色在YCbCr色度空间的分布范围: 138<=Cr<=175; 100<=Cb<=118
-     for( ; it_Cb != it_Cb_end; ++it_Cr, ++it_Cb, ++it_skin)
-     {
-     if (CrL+133 <= *it_Cr &&  *it_Cr <= CrH+170 && CbL+95 <= *it_Cb &&  *it_Cb <= CbH+112)
-     *it_skin = 255;
-     else
-     *it_skin = 0;
-     }
-     
-     //膨胀和腐蚀，膨胀可以填补凹洞（将裂缝桥接），腐蚀可以消除细的凸起（“斑点”噪声）
-     dilate(skinArea, skinArea, Mat(5, 5, CV_8UC1), Point(-1, -1),2);
-     erode(skinArea, skinArea, Mat(5, 5, CV_8UC1), Point(-1, -1),1);
-
+    
+    //人的皮肤颜色在YCbCr色度空间的分布范围:100<=Cb<=118, 138<=Cr<=175
+    for( ; it_Cb != it_Cb_end; ++it_Cr, ++it_Cb, ++it_skin)
+    {
+        if (138 <= *it_Cr &&  *it_Cr <= 175 && 50<= *it_Cb &&  *it_Cb <= 120)
+            *it_skin = 255;
+        else
+            *it_skin = 0;
+    }
+    
+    //膨胀和腐蚀，膨胀可以填补凹洞（将裂缝桥接），腐蚀可以消除细的凸起（“斑点”噪声）
+    dilate(skinArea, skinArea, Mat(2, 2, CV_8UC1), Point(-1, -1),2);
+    erode(skinArea, skinArea, Mat(3, 3, CV_8UC1), Point(-1, -1),1);
+    dilate(skinArea, skinArea, Mat(2, 2, CV_8UC1), Point(-1, -1),2);
+    
 }
 bool isCover(Point a,Point b){
     if(a.x == b.x && a.y == b.y)
