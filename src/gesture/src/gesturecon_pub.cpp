@@ -15,17 +15,22 @@ using namespace std;
 //-----------------------------------------------------------------------------------------------
 Mat img;
 int CrL = 5;    //轨迹条滑块对应的值
-int CrH = 5;
+int CrH = 15;
 int CbL = 5;
-int CbH = 5;
-
+int CbH = 20;
+int pub_count=0;
+int fignum[5];
+int realnum;
 void skinExtract1(const Mat &frame, Mat &skinArea); //选出肤色
 void skinExtract2(const Mat &frame, Mat &skinArea); //选出肤色
 bool isCover(Point a,Point b);
-
+int mymax(int a[]);
 int main(int argc, char **argv)
 {
+    for(int ci=0;ci<5;ci++)
+    fignum[ci]=0;
 	 int num=0;
+     
     Mat skinArea,frameROI;
     
     Mat frame;
@@ -46,7 +51,7 @@ int main(int argc, char **argv)
 	ros::NodeHandle n;
 
 	
-	ros::Publisher chatter_pub = n.advertise<std_msgs::String>("gesturecontrol", 1000);
+	ros::Publisher chatter_pub = n.advertise<std_msgs::String>("gesturecontrol", 1);
 
 	ros::Rate loop_rate(10);
 
@@ -133,18 +138,18 @@ int main(int argc, char **argv)
             if (dist != max)
             {
                 count++;
-                if (count > 100)
+                if (count > 80)
                 {
                     count = 0;
                     max = 0;
                     bool flag = false;
                     // 低于手心的点不算
-                    if (center.y < couPoint[notice].y+50 )
+                    if (center.y < couPoint[notice].y )
                         continue;
                     // 离得太近的不算
                     for (int j = 0; j < fingerTips.size(); j++)
                     {
-                        if (abs(couPoint[notice].x - fingerTips[j].x) < 20)
+                        if (abs(couPoint[notice].x - fingerTips[j].x) < 11)
                         {
                             flag = true;
                             break;
@@ -160,36 +165,57 @@ int main(int argc, char **argv)
         }
         
         
-        if ( cvWaitKey(300) == 'q' )
+        if ( cvWaitKey(20) == 'q' )
             break;
         
         imshow("show_img", show_img);
         
         cout << "Number of Fingers is " << num << endl;
+        fignum[num]++;
         
-
 
 		std_msgs::String msg;
 
 		std::stringstream ss;
-		ss <<num;
-		msg.data = ss.str();
-
-		ROS_INFO("%s", msg.data.c_str());
+		
 
 		
-		chatter_pub.publish(msg);
 
-		ros::spinOnce();
+		if(pub_count%25==0){
+        ss << mymax(fignum);
+		msg.data = ss.str();    
+        ROS_INFO("%s", msg.data.c_str());
+		chatter_pub.publish(msg);
+        for(int ci=0;ci<5;ci++)
+    fignum[ci]=0;
+        ros::spinOnce();
 
 		loop_rate.sleep();
+        }
+        
+        
+
+        pub_count++;
+		
 		
 	}
 
 	return 0;
 }
 
-
+int mymax(int a[]){
+    int maxi=0;
+    int maxnum=-1;
+    for(int i=0;i<5;i++){
+        if(maxnum<a[i]){
+        maxnum=a[i];
+        maxi=i;
+        }
+        
+    }
+    cout<<"maxi is "<< maxi<<endl;
+    return maxi;
+}
 //肤色提取，skinArea为二值化肤色图像
 void skinExtract1(const Mat &frame, Mat &skinArea)
 {
@@ -238,7 +264,7 @@ void skinExtract2(const Mat &frame, Mat &skinArea)
     //人的皮肤颜色在YCbCr色度空间的分布范围:100<=Cb<=118, 138<=Cr<=175
     for( ; it_Cb != it_Cb_end; ++it_Cr, ++it_Cb, ++it_skin)
     {
-        if (138 <= *it_Cr &&  *it_Cr <= 175 && 50<= *it_Cb &&  *it_Cb <= 120)
+        if (CrL+130 <= *it_Cr &&  *it_Cr <= CrH+160 && 90+CbL <= *it_Cb &&  *it_Cb <= 110+CbH )
             *it_skin = 255;
         else
             *it_skin = 0;

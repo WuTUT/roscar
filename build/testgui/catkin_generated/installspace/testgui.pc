@@ -1,8 +1,0 @@
-prefix=/home/wu/roscar/install
-
-Name: testgui
-Description: Description of testgui
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/wu/roscar/install/lib 
-Requires: 
